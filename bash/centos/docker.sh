@@ -8,7 +8,7 @@ yum -y install docker-ce
 systemctl start docker
 systemctl enable docker
 systemctl status docker
-
-echo "Usermod for Docker"
-
-usermod -aG docker $USER
+firewall-cmd --permanent --zone=trusted --change-interface=docker0
+firewall-cmd --permanent --zone=trusted --add-port=4243/tcp
+firewall-cmd --reload
+export DOCKER_CLIENT_TIMEOUT=120
