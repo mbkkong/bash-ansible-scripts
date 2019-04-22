@@ -3,8 +3,8 @@
 echo "Installing Docker"
 
 yum -y update
-yum install yum-utils device-mapper-persistent-data lvm2
-yum install docker-ce
+yum -y install yum-utils device-mapper-persistent-data lvm2
+yum -y install docker-ce
 systemctl start docker
 systemctl enable docker
 systemctl status docker
